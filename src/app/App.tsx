@@ -12,14 +12,19 @@ import {Sidebar} from "widgets/Sidebar";
 
 
 const App = () => {
-const { theme } = useTheme()
+
+    const {theme} = useTheme()
     return (
         <div className={classNames('app', {}, [theme, 'cls2, cls3'])}>
+        <Suspense fallback=''>
             <Navbar/>
-        <div className='content-page'>
-            <Sidebar/>
-            <AppRouter/>
-        </div>
+            <div className='content-page'>
+                <Sidebar/>
+                <AppRouter/>
+            </div>
+        </Suspense>
+
+
         </div>
     );
 };
