@@ -21,8 +21,9 @@ export const Sidebar = ({ className }: SidebarProps) => {
             data-testid="sidebar"
             className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
         >
-            {/* eslint-disable-next-line react/button-has-type,i18next/no-literal-string */}
             <button
+                aria-label="Save"
+                type="button"
                 data-testid="sidebar-toggle"
                 onClick={onToggle}
             />

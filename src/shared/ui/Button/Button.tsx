@@ -21,6 +21,7 @@ export const Button: FC<ButtonProps> = (props) => {
         theme,
         ...otherProps
     } = props;
+    // @ts-ignore
     return (
         <button
             type="button"
