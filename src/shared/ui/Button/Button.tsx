@@ -5,11 +5,12 @@ import cls from './Button.module.scss';
 export enum ButtonTheme {
     // eslint-disable-next-line no-unused-vars
     CLEAR = 'clear',
+    CLEAR_INVERTED='clearInverted',
     // eslint-disable-next-line no-unused-vars
     OUTLINE = 'outline',
     BACKGROUND = 'background',
     // eslint-disable-next-line no-unused-vars
-    BACKGROUND_INVERTED = 'background_inverted'
+    BACKGROUND_INVERTED = 'backgroundInverted'
 }
 export enum ButtonSize {
    M = 'size_m',
