@@ -67,7 +67,6 @@ export const Input = memo((props: InputProps) => {
                     onChange={onChangeHandler}
                     type={type}
                     onSelect={onSelect}
-                    autoFocus
                     {...otherProps}
                 />
                 {isFocused
