@@ -9,5 +9,7 @@
   "Throw Error": "Показать ошибку",
   "About": "О сайте",
   "Main": "Главная",
-  "Login": "Войти"
+  "Login": "Войти",
+  "add username": "введите имя",
+  "add password": "введите пароль"
 }
