@@ -8,13 +8,14 @@ import { AppRouter } from 'app/providers/router';
 import { Navbar } from 'widgets/NavBar';
 import { Sidebar } from 'widgets/Sidebar';
 import { Modal } from 'shared/ui/Modal/Modal';
+import { PageLoader } from 'shared/ui/PageLoader/PageLoader';
 
 const App = () => {
     const { theme } = useTheme();
 
     return (
         <div className={classNames('app', {}, [theme])}>
-            <Suspense fallback="">
+            <Suspense fallback={<PageLoader />}>
                 <Navbar />
                 <div className="content-page">
                     <Sidebar />

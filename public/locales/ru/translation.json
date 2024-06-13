@@ -11,5 +11,6 @@
   "Main": "Главная",
   "Login": "Войти",
   "add username": "введите имя",
-  "add password": "введите пароль"
+  "add password": "введите пароль",
+  "add text": "добавить текст"
 }

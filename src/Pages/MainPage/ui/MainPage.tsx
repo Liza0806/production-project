@@ -14,7 +14,7 @@ const MainPage = () => {
         <div>
             {t('Main Page')}
             <Input
-                placeholder="add text"
+                placeholder={t('add text')}
                 value={value}
                 onChange={onChange}
             />
