@@ -9,9 +9,16 @@ import { Navbar } from 'widgets/NavBar';
 import { Sidebar } from 'widgets/Sidebar';
 import { Modal } from 'shared/ui/Modal/Modal';
 import { PageLoader } from 'shared/ui/PageLoader/PageLoader';
+import { useDispatch } from 'react-redux';
+import { userActions } from 'entities/User';
 
 const App = () => {
     const { theme } = useTheme();
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(userActions.setAuthData());
+    }, [dispatch]);
 
     return (
         <div className={classNames('app', {}, [theme])}>

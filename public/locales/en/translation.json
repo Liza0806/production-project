@@ -12,5 +12,8 @@
   "Login": "Login",
   "add username": "add username",
   "add password": "add password",
-  "add text": "add text"
+  "add text": "add text",
+  "Authorization form": "Authorization form",
+  "wrong username or password": "wrong username or password",
+  "Logout": "Logout"
 }

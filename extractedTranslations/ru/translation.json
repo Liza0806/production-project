@@ -1,8 +1,10 @@
 {
   "About": "About",
   "About Page": "About Page",
+  "Authorization form": "Authorization form",
   "Language": "Language",
   "Login": "Login",
+  "Logout": "Logout",
   "Main": "Main",
   "Main Page": "Main Page",
   "Page not found": "Page not found",
@@ -13,5 +15,6 @@
   "add text": "add text",
   "add user name": "add user name",
   "add username": "add username",
-  "toggle": "toggle"
+  "toggle": "toggle",
+  "wrong username or password": "wrong username or password"
 }
