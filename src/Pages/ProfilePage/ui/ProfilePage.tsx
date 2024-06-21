@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { SyntheticEvent, useCallback, useEffect } from 'react';
 import { DynamicModuleLoader, ReducersList }
     from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import {
     fetchProfileData,
     getProfileData,
-    getProfileError,
-    getProfileIsLoading,
+    getProfileError, getProfileForm,
+    getProfileIsLoading, getProfileReadonly, profileActions,
     ProfileCard,
     profileReducer,
 } from 'entities/Profile';
@@ -19,22 +19,32 @@ const reducers: ReducersList = {
 
 const ProfilePage = () => {
     const dispatch = useAppDispatch();
-    const data = useSelector(getProfileData);
+    const formData = useSelector(getProfileForm);
     const error = useSelector(getProfileError);
     const isLoading = useSelector(getProfileIsLoading);
+    const readonly = useSelector(getProfileReadonly);
 
     useEffect(() => {
         dispatch(fetchProfileData());
     }, [dispatch]);
 
+    const onChangeFirstname = useCallback((value?: string) => {
+        dispatch(profileActions.updateProfile({ first: value || '' }));
+    }, [dispatch]);
+    const onChangeLastname = useCallback((value?: string) => {
+        dispatch(profileActions.updateProfile({ lastname: value || '' }));
+    }, [dispatch]);
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <div>
                 <ProfilePageHeader />
                 <ProfileCard
-                    data={data}
+                    data={formData}
                     isLoading={isLoading}
                     error={error}
+                    readonly={readonly}
+                    onChangeFirstname={onChangeFirstname}
+                    onChangeLastname={onChangeLastname}
                 />
             </div>
         </DynamicModuleLoader>

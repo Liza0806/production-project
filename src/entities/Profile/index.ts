@@ -1,4 +1,5 @@
 import { getProfileReadonly } from 'entities/Profile/model/selectors/getProfileReadonly/getProfileReadonly';
+import { getProfileForm } from 'entities/Profile/model/selectors/getProfileForm/getProfileForm';
 
 export {
     Profile,
@@ -22,3 +23,4 @@ export { getProfileIsLoading } from './model/selectors/getProfileIsLoading/getPr
 export { getProfileError } from './model/selectors/getProfileError/getProfileError';
 export { getProfileData } from './model/selectors/getProfileData/getProfileData';
 export { getProfileReadonly } from './model/selectors/getProfileReadonly/getProfileReadonly';
+export { getProfileForm } from './model/selectors/getProfileForm/getProfileForm';
