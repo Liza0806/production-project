@@ -1,7 +1,7 @@
 import React, {
     Suspense, useContext, useEffect, useState,
 } from 'react';
-import { Link, Route, Routes } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useTheme } from 'app/providers/ThemeProvider';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { AppRouter } from 'app/providers/router';
@@ -15,9 +15,10 @@ import { userActions } from 'entities/User';
 const App = () => {
     const { theme } = useTheme();
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     useEffect(() => {
-        dispatch(userActions.setAuthData());
+        dispatch(userActions.setAuthData);
     }, [dispatch]);
 
     return (

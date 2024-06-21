@@ -2,12 +2,14 @@
   "About": "About",
   "About Page": "About Page",
   "Authorization form": "Authorization form",
+  "Edit": "Edit",
   "Language": "Language",
   "Login": "Login",
   "Logout": "Logout",
   "Main": "Main",
   "Main Page": "Main Page",
   "Page not found": "Page not found",
+  "Profile": "Profile",
   "Profile Page": "Profile Page",
   "Reload page": "Reload page",
   "Something went wrong": "Something went wrong",
@@ -17,5 +19,7 @@
   "add user name": "add user name",
   "add username": "add username",
   "toggle": "toggle",
-  "wrong username or password": "wrong username or password"
+  "wrong username or password": "wrong username or password",
+  "your name": "your name",
+  "your surname": "your surname"
 }
