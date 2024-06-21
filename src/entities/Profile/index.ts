@@ -1,6 +1,3 @@
-import { getProfileReadonly } from 'entities/Profile/model/selectors/getProfileReadonly/getProfileReadonly';
-import { getProfileForm } from 'entities/Profile/model/selectors/getProfileForm/getProfileForm';
-
 export {
     Profile,
     ProfileSchema,
@@ -14,6 +11,10 @@ export {
 export {
     fetchProfileData,
 } from './model/services/fetchProfileData/fetchProfileData';
+
+export {
+    updateProfileData,
+} from './model/services/updateProfileData/updateProfileData';
 
 export {
     ProfileCard,

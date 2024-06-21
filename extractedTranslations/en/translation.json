@@ -13,6 +13,7 @@
   "Profile": "Profile",
   "Profile Page": "Profile Page",
   "Reload page": "Reload page",
+  "Save": "",
   "Something went wrong": "Something went wrong",
   "There was an error loading your profile": "",
   "Throw Error": "Throw Error",
@@ -24,6 +25,9 @@
   "add username": "",
   "toggle": "toggle",
   "wrong username or password": "",
+  "your age": "",
+  "your city": "",
+  "your currency": "",
   "your name": "your name",
   "your surname": "your surname"
 }
