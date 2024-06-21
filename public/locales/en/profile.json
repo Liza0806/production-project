@@ -6,5 +6,9 @@
   "There was an error loading your profile": "There was an error loading your profile",
   "Try to reload the page": "Try to reload the page",
   "Undo": "Undo",
-  "Save": "Save"
+  "Save": "Save",
+  "age": "age",
+  "city": "city",
+  "username":  "username",
+  "avatar":  "avatar"
 }

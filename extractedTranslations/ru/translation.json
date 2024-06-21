@@ -23,11 +23,18 @@
   "add text": "add text",
   "add user name": "add user name",
   "add username": "add username",
+  "age": "age",
+  "avatar": "avatar",
+  "chose currency": "chose currency",
+  "city": "city",
   "toggle": "toggle",
+  "username": "username",
   "wrong username or password": "wrong username or password",
   "your age": "your age",
+  "your avatar": "your avatar",
   "your city": "your city",
   "your currency": "your currency",
   "your name": "your name",
-  "your surname": "your surname"
+  "your surname": "your surname",
+  "your username": "your username"
 }

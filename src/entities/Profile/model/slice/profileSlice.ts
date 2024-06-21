@@ -49,7 +49,7 @@ const profileSlice = createSlice({
                 },
             )
             .addCase(
-                updateProfileData.rejected,
+                fetchProfileData.rejected,
                 (state, action) => {
                     state.isLoading = false;
                     state.error = action.payload;

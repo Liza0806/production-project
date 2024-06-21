@@ -6,5 +6,9 @@
   "There was an error loading your profile": "Произошла ошибка при загрузке профиля",
   "Try to reload the page": "Попробуйте обновить страницу",
   "Undo": "Отменить",
-  "Save": "Сохранить"
+  "Save": "Сохранить",
+  "age": "возраст",
+  "city": "город",
+  "username":  "имя пользователя",
+  "avatar":  "аватар"
 }
