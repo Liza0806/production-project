@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
 import { DynamicModuleLoader, ReducersList }
     from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import {
@@ -10,15 +9,15 @@ import {
     ProfileCard,
     profileReducer,
 } from 'entities/Profile';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducersList = {
     profile: profileReducer,
 };
 
 const ProfilePage = () => {
-    const { t } = useTranslation('');
     const dispatch = useAppDispatch();
     const data = useSelector(getProfileData);
     const error = useSelector(getProfileError);
@@ -31,7 +30,12 @@ const ProfilePage = () => {
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <div>
-                <ProfileCard />
+                <ProfilePageHeader />
+                <ProfileCard
+                    data={data}
+                    isLoading={isLoading}
+                    error={error}
+                />
             </div>
         </DynamicModuleLoader>
 

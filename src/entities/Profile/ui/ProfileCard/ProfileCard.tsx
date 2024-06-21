@@ -1,23 +1,58 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
-import { getProfileData } from 'entities/Profile/model/selectors/getProfileData/getProfileData';
-import { getProfileIsLoading }
-    from 'entities/Profile/model/selectors/getProfileIsLoading/getProfileIsLoading';
-import { getProfileError } from 'entities/Profile/model/selectors/getProfileError/getProfileError';
-import { Text } from 'shared/ui/Text/Text';
+import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
+import { Loader } from 'shared/ui/Loader/Loader';
 import { Profile } from '../../model/types/profile';
 import cls from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
     className?: string;
-    data?: Profile
+    data?: Profile;
+    isLoading?: boolean;
+    error?: string;
 }
 
-export const ProfileCard = ({ className, data }: ProfileCardProps) => {
+export const ProfileCard = (props: ProfileCardProps) => {
     const { t } = useTranslation();
+    const {
+        className,
+        data,
+        isLoading,
+        error,
+    } = props;
+
+    if (isLoading) {
+        return (
+            <div className={classNames(
+                cls.ProfileCard,
+                { [cls.loading]: true },
+                [className],
+            )}
+            >
+                <Loader />
+            </div>
+        );
+    }
+
+    if (error) {
+        return (
+            <div className={classNames(
+                cls.ProfileCard,
+                {},
+                [className, cls.error],
+            )}
+            >
+                <Text
+                    title={t('There was an error loading your profile')}
+                    text={t('Try to reload the page')}
+                    theme={TextTheme.ERROR}
+                    align={TextAlign.CENTER}
+                />
+            </div>
+        );
+    }
 
     return (
         <div className={classNames(
@@ -26,15 +61,7 @@ export const ProfileCard = ({ className, data }: ProfileCardProps) => {
             [className],
         )}
         >
-            <div className={cls.header}>
-                <Text title={t('Profile')} />
-                <Button
-                    className={cls.editBtn}
-                    theme={ButtonTheme.OUTLINE}
-                >
-                    {t('Edit')}
-                </Button>
-            </div>
+            <div className={cls.header} />
             <div className={cls.data}>
                 <Input
                     value={data?.first}

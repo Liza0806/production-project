@@ -1,4 +1,5 @@
 {
+  "": "",
   "About": "About",
   "About Page": "About Page",
   "Authorization form": "Authorization form",
@@ -13,7 +14,9 @@
   "Profile Page": "Profile Page",
   "Reload page": "Reload page",
   "Something went wrong": "Something went wrong",
+  "There was an error loading your profile": "There was an error loading your profile",
   "Throw Error": "Throw Error",
+  "Try to reload the page": "Try to reload the page",
   "add password": "add password",
   "add text": "add text",
   "add user name": "add user name",
