@@ -3,7 +3,6 @@ import { DynamicModuleLoader, ReducersList }
     from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import {
     fetchProfileData,
-    getProfileData,
     getProfileError, getProfileForm,
     getProfileIsLoading, getProfileReadonly, profileActions,
     ProfileCard,
@@ -11,6 +10,8 @@ import {
 } from 'entities/Profile';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Currency } from 'entities/Currency';
+import { Country } from 'entities/Country/model/types/country';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducersList = {
@@ -37,8 +38,12 @@ const ProfilePage = () => {
     }, [dispatch]);
 
     const onChangeAge = useCallback((value?: string) => {
-        /// /////// add validation
-        dispatch(profileActions.updateProfile({ age: Number(value || 0) }));
+        if (!value) return;
+        if (/^\d+$/.test(value)) {
+            dispatch(profileActions.updateProfile({ age: Number(value || 0) }));
+        } else {
+            throw new Error('Validation error: Value must contain only digits');
+        }
     }, [dispatch]);
 
     const onChangeCity = useCallback((value?: string) => {
@@ -53,6 +58,13 @@ const ProfilePage = () => {
         dispatch(profileActions.updateProfile({ avatar: value || '' }));
     }, [dispatch]);
 
+    const onChangeCurrency = useCallback((currency?: Currency) => {
+        dispatch(profileActions.updateProfile({ currency }));
+    }, [dispatch]);
+
+    const onChangeCountry = useCallback((country?: Country) => {
+        dispatch(profileActions.updateProfile({ country }));
+    }, [dispatch]);
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <div>
@@ -62,13 +74,14 @@ const ProfilePage = () => {
                     isLoading={isLoading}
                     error={error}
                     readonly={readonly}
-
                     onChangeFirstname={onChangeFirstname}
                     onChangeLastname={onChangeLastname}
                     onChangeAge={onChangeAge}
                     onChangeCity={onChangeCity}
                     onChangeUsername={onChangeUsername}
                     onChangeAvatar={onChangeAvatar}
+                    onChangeCurrency={onChangeCurrency}
+                    onChangeCountry={onChangeCountry}
                 />
             </div>
         </DynamicModuleLoader>

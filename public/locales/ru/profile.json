@@ -10,6 +10,6 @@
   "age": "возраст",
   "city": "город",
   "username":  "имя пользователя",
-  "avatar":  "аватар"
-
+  "avatar":  "аватар",
+  "Validation error: Value must contain only digits": "Ошибка валидации: значение должно состоять только из цифр"
 }
