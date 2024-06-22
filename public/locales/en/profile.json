@@ -11,5 +11,10 @@
   "city": "city",
   "username":  "username",
   "avatar":  "avatar",
-  "Validation error: Value must contain only digits": "Validation error: Value must contain only digits"
+  "Validation error: Value must contain only digits": "Validation error: Value must contain only digits",
+  "Server error during saving": "Server error during saving",
+  "Incorrect region":  "Incorrect region",
+  "Data not specified": "Data not specified",
+  "First name and last name are required":  "First name and last name are required",
+  "Incorrect age":  "Incorrect age"
 }

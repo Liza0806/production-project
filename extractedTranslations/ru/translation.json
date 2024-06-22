@@ -3,7 +3,11 @@
   "About": "About",
   "About Page": "About Page",
   "Authorization form": "Authorization form",
+  "Data not specified": "Data not specified",
   "Edit": "Edit",
+  "First name and last name are required": "First name and last name are required",
+  "Incorrect age": "Incorrect age",
+  "Incorrect region": "Incorrect region",
   "Language": "Language",
   "Login": "Login",
   "Logout": "Logout",
@@ -14,6 +18,7 @@
   "Profile Page": "Profile Page",
   "Reload page": "Reload page",
   "Save": "Save",
+  "Server error during saving": "Server error during saving",
   "Something went wrong": "Something went wrong",
   "There was an error loading your profile": "There was an error loading your profile",
   "Throw Error": "Throw Error",
@@ -36,5 +41,10 @@
   "your currency": "your currency",
   "your name": "your name",
   "your surname": "your surname",
-  "your username": "your username"
+  "your username": "your username",
+  "Данные не указаны": "Данные не указаны",
+  "Имя и фамилия обязательны": "Имя и фамилия обязательны",
+  "Некорректный возраст": "Некорректный возраст",
+  "Некорректный регион": "Некорректный регион",
+  "Серверная ошибка при сохранении": "Серверная ошибка при сохранении"
 }

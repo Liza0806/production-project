@@ -11,5 +11,10 @@
   "city": "город",
   "username":  "имя пользователя",
   "avatar":  "аватар",
-  "Validation error: Value must contain only digits": "Ошибка валидации: значение должно состоять только из цифр"
+  "Validation error: Value must contain only digits": "Ошибка валидации: значение должно состоять только из цифр",
+  "Server error during saving": "Серверная ошибка при сохранении",
+  "Incorrect region": "Некорректный регион",
+  "Data not specified": "Данные не указаны",
+  "First name and last name are required": "Имя и фамилия обязательны",
+  "Incorrect age": "Некорректный возраст"
 }
