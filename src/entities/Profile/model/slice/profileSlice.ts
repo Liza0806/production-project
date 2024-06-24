@@ -47,6 +47,7 @@ const profileSlice = createSlice({
                     state.isLoading = false;
                     state.data = action.payload;
                     state.form = action.payload;
+                    console.log(state);
                 },
             )
             .addCase(
