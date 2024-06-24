@@ -18,7 +18,7 @@ const App = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        dispatch(userActions.setAuthData);
+        dispatch(userActions.initAuthData());
     }, [dispatch]);
 
     return (
