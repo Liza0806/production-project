@@ -1,6 +1,5 @@
 import { CounterSchema } from 'entities/Counter';
 import { UserSchema } from 'entities/User';
-import { LoginSchema } from 'features/AuthByUsername';
 import {
     AnyAction, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
@@ -11,13 +10,14 @@ import { AxiosInstance } from 'axios';
 import { NavigateOptions } from 'react-router';
 import { AppDispatch } from 'app/providers/StoreProvider';
 import { To } from '@remix-run/router/dist/history';
-// C:\Users\user\WebstormProjects\production-project\node_modules\@remix-run\router\history.ts
+import { LoginSchema } from
+    '../../../../features/AuthByUserName/model/types/loginSchema';
 
 export interface StateSchema {
     counter: CounterSchema;
     user: UserSchema;
 
-    // Асинхронные редюсеры
+    // Async
     loginForm?: LoginSchema;
     profile?: ProfileSchema;
 }
