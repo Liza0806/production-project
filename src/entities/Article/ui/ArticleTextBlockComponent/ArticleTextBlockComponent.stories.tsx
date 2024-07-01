@@ -3,17 +3,17 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 // import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 // import { Theme } from 'app/providers/ThemeProvider';
-import ArticleDetailsPage from './ArticleDetailsPage';
+import { ArticleTextBlockComponent } from './ArticleTextBlockComponent';
 
 export default {
-    title: 'shared/ArticleDetailsPage',
-    component: ArticleDetailsPage,
+    title: 'shared/ArticleTextBlockComponent',
+    component: ArticleTextBlockComponent,
     argTypes: {
         // backgroundColor: { control: 'color' },
     },
-} as ComponentMeta<typeof ArticleDetailsPage>;
+} as ComponentMeta<typeof ArticleTextBlockComponent>;
 
-const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => <ArticleDetailsPage {...args} />;
+const Template: ComponentStory<typeof ArticleTextBlockComponent> = (args) => <ArticleTextBlockComponent {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {};

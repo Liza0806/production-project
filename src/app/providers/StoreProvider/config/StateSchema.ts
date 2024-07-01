@@ -8,8 +8,8 @@ import { ProfileSchema } from 'entities/Profile';
 import { AxiosInstance } from 'axios';
 
 import { NavigateOptions } from 'react-router';
-import { AppDispatch } from 'app/providers/StoreProvider';
 import { To } from '@remix-run/router/dist/history';
+import { ArticleDetailsSchema } from 'entities/Article';
 import { LoginSchema } from
     '../../../../features/AuthByUserName/model/types/loginSchema';
 
@@ -20,6 +20,7 @@ export interface StateSchema {
     // Async
     loginForm?: LoginSchema;
     profile?: ProfileSchema;
+    articleDetails?: ArticleDetailsSchema
 }
 
 export type StateSchemaKey = keyof StateSchema;
