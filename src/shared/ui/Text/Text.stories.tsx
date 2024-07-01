@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { Text, TextSize, TextTheme } from 'shared/ui/Text/Text';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 
@@ -19,6 +19,21 @@ Primary.args = {
     title: 'Title Title',
     text: 'Text Text Text Text Text Text',
 };
+
+export const PrimarySizeM = Template.bind({});
+PrimarySizeM.args = {
+    title: 'Title Title',
+    text: 'Text Text Text Text Text Text',
+    size: TextSize.M,
+};
+
+export const PrimarySizeL = Template.bind({});
+PrimarySizeL.args = {
+    title: 'Title Title',
+    text: 'Text Text Text Text Text Text',
+    size: TextSize.L,
+};
+
 export const Error = Template.bind({});
 Error.args = {
     title: 'Title Title',
