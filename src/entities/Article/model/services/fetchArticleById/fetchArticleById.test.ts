@@ -1,20 +1,9 @@
-import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+import { Country } from 'entities/Country';
+import { Currency } from 'entities/Currency';
 import { Article } from 'entities/Article';
 import { ArticleBlockType, ArticleType } from 'entities/Article/model/types/article';
-import { ArticleDetails } from './ArticleDetails';
-
-export default {
-    title: 'entities/ArticleDetails',
-    component: ArticleDetails,
-    argTypes: {
-        backgroundColor: { control: 'color' },
-    },
-} as ComponentMeta<typeof ArticleDetails>;
-
-const Template: ComponentStory<typeof ArticleDetails> = (args) => <ArticleDetails {...args} />;
+import { fetchArticleById } from './fetchArticleById';
 
 const article: Article = {
     id: '1',
@@ -52,26 +41,25 @@ const article: Article = {
     ],
 };
 
-export const Normal = Template.bind({});
-Normal.args = {};
-Normal.decorators = [StoreDecorator({
-    articleDetails: {
-        data: article,
-    },
-})];
+describe('fetchArticleById.test', () => {
+    test('success', async () => {
+        const thunk = new TestAsyncThunk(fetchArticleById);
+        thunk.api.get.mockReturnValue(Promise.resolve({ data: article })); // Измените на { data: article }
 
-export const Loading = Template.bind({});
-Loading.args = {};
-Loading.decorators = [StoreDecorator({
-    articleDetails: {
-        isLoading: true,
-    },
-})];
+        const result = await thunk.callThunk('1');
 
-export const Error = Template.bind({});
-Error.args = {};
-Error.decorators = [StoreDecorator({
-    articleDetails: {
-        error: 'error',
-    },
-})];
+        expect(thunk.api.get).toHaveBeenCalled();
+        expect(result.meta.requestStatus).toBe('fulfilled');
+        expect(result.payload).toEqual(article);
+    });
+
+    test('error login', async () => {
+        const thunk = new TestAsyncThunk(fetchArticleById);
+        thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
+        const result = await thunk.callThunk('error');
+
+        expect(result.meta.requestStatus).toBe('rejected');
+    });
+});
+
+// npm run test:unit fetchArticleById.test.ts
