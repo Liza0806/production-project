@@ -10,8 +10,12 @@ import { AxiosInstance } from 'axios';
 import { NavigateOptions } from 'react-router';
 import { To } from '@remix-run/router/dist/history';
 import { ArticleDetailsSchema } from 'entities/Article';
+import { ArticleDetailsCommentSchema } from 'Pages/ArticleDetailsPage';
 import { LoginSchema } from
     '../../../../features/AuthByUserName/model/types/loginSchema';
+import {
+    AddCommentFormSchema,
+} from '../../../../features/addCommentForm';
 
 export interface StateSchema {
     counter: CounterSchema;
@@ -20,7 +24,9 @@ export interface StateSchema {
     // Async
     loginForm?: LoginSchema;
     profile?: ProfileSchema;
-    articleDetails?: ArticleDetailsSchema
+    articleDetails?: ArticleDetailsSchema;
+    articleDetailsComments?: ArticleDetailsCommentSchema;
+    addCommentForm?: AddCommentFormSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;
