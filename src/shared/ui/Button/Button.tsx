@@ -44,7 +44,6 @@ export const Button: FC<ButtonProps> = memo((props:ButtonProps) => {
         [cls.disabled]: disabled,
     };
 
-    // @ts-ignore
     return (
         <button
             type="button"

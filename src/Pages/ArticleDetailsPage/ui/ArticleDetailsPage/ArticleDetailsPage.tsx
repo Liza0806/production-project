@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 import { ArticleDetails } from 'entities/Article';
 import { useParams } from 'react-router-dom';
 import { CommentList } from 'entities/Comment';
@@ -12,9 +12,13 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import {
-    fetchCommentByArticleId,
-} from 'Pages/ArticleDetailsPage/model/services/fetchCommentByArticleId/fetchCommentByArticleId';
+    fetchCommentsByArticleId,
+} from 'Pages/ArticleDetailsPage/model/services/fetchCommentByArticleId/fetchCommentsByArticleId';
 import { AddCommentForm } from 'features/addCommentForm';
+import {
+    addCommentForArticle,
+// eslint-disable-next-line max-len
+} from 'Pages/ArticleDetailsPage/model/services/addCommentForArticle/addCommentForArticle/addCommentForArticle';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments/comments';
 import {
     articleDetailsCommentsReducer, getArticleComments,
@@ -35,8 +39,12 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     const dispatch = useDispatch();
     const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
 
+    const onSendComment = useCallback((text: string) => {
+        dispatch(addCommentForArticle(text));
+    }, [dispatch]);
+
     useInitialEffect(() => {
-        dispatch(fetchCommentByArticleId(id));
+        dispatch(fetchCommentsByArticleId(id));
     });
 
     if (!id) {
@@ -52,7 +60,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
             <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
                 <ArticleDetails id={id} />
                 <Text title={t('comments')} />
-                <AddCommentForm />
+                <AddCommentForm onSendComment={onSendComment} />
                 <CommentList
                     isLoading={commentsIsLoading}
                     comments={comments}

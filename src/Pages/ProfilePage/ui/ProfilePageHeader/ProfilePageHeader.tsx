@@ -3,14 +3,15 @@ import { useTranslation } from 'react-i18next';
 import { Text } from 'shared/ui/Text/Text';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import {
+    getProfileData,
     getProfileReadonly,
     profileActions,
     updateProfileData,
 } from 'entities/Profile';
 import { useSelector } from 'react-redux';
 import { useCallback } from 'react';
-import { actions } from '@storybook/addon-actions';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { getUserAuthData } from 'entities/User';
 import cls from './ProfilePageHeader.module.scss';
 
 interface ProfilePageHeaderProps {
@@ -22,6 +23,9 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
     const { t } = useTranslation();
     const readonly = useSelector(getProfileReadonly);
     const dispatch = useAppDispatch();
+    const authData = useSelector(getUserAuthData);
+    const profileData = useSelector(getProfileData);
+    const canEdit = profileData?.id === authData?.id;
 
     const onEdit = useCallback(() => {
         dispatch(profileActions.setReadonly(false));
@@ -37,34 +41,40 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
     return (
         <div className={classNames(cls.ProfilePageHeader, {}, [className])}>
             <Text title={t('Profile')} />
-            {readonly ? (
-                <Button
-                    className={cls.editBtn}
-                    theme={ButtonTheme.OUTLINE}
-                    onClick={onEdit}
-                >
-                    {t('Edit')}
-                </Button>
-            )
-                : (
-                    <>
-                        <Button
-                            className={cls.editBtn}
-                            theme={ButtonTheme.OUTLINE_RED}
-                            onClick={onCancelEdit}
-                        >
-                            {t('Undo')}
-                        </Button>
-                        <Button
-                            className={cls.saveBtn}
-                            theme={ButtonTheme.OUTLINE}
-                            onClick={onSave}
-                        >
-                            {t('Save')}
-                        </Button>
-                    </>
+            {canEdit && (
+                <div className={cls.btnsWrapper}>
+                    {
+                        readonly ? (
+                            <Button
+                                className={cls.editBtn}
+                                theme={ButtonTheme.OUTLINE}
+                                onClick={onEdit}
+                            >
+                                {t('Edit')}
+                            </Button>
+                        )
+                            : (
+                                <>
+                                    <Button
+                                        className={cls.editBtn}
+                                        theme={ButtonTheme.OUTLINE_RED}
+                                        onClick={onCancelEdit}
+                                    >
+                                        {t('Undo')}
+                                    </Button>
+                                    <Button
+                                        className={cls.saveBtn}
+                                        theme={ButtonTheme.OUTLINE}
+                                        onClick={onSave}
+                                    >
+                                        {t('Save')}
+                                    </Button>
+                                </>
 
-                )}
+                            )
+                    }
+                </div>
+            )}
         </div>
     );
 };

@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 // @ts-ignore
-import AvatarImg from '../../assets/test/storybook.jpg';
+import AvatarImg from './storybook.jpg';
 
 export default {
     title: 'shared/Avatar',

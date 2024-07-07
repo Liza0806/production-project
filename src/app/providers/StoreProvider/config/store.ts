@@ -17,7 +17,6 @@ export function createReduxStore(
         ...asyncReducers,
         counter: counterReducer,
         user: userReducer,
-        // loginForm: loginReducer,
     };
 
     const reducerManager = createReducerManager(rootReducers);
@@ -37,7 +36,6 @@ export function createReduxStore(
             },
         }),
     });
-
     // @ts-ignore
     store.reducerManager = reducerManager;
     return store;

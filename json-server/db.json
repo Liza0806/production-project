@@ -150,6 +150,12 @@
       "userId": "2",
       "text": "asdasdasd",
       "id": "MVvGQoZ"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "пвапявап",
+      "id": "xOISW1-"
     }
   ],
   "users": [
@@ -185,7 +191,7 @@
       "first": "ulbi tv",
       "lastname": "asf",
       "age": 465,
-      "currency": "RUB",
+      "currency": "EUR",
       "country": "Russia",
       "city": "Moscow",
       "username": "ulbi tv",
