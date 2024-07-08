@@ -19,6 +19,7 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
+      "userId": "1",
       "type": [
         "IT"
       ],
@@ -150,12 +151,6 @@
       "userId": "2",
       "text": "asdasdasd",
       "id": "MVvGQoZ"
-    },
-    {
-      "articleId": "1",
-      "userId": "2",
-      "text": "пвапявап",
-      "id": "xOISW1-"
     }
   ],
   "users": [
@@ -191,7 +186,7 @@
       "first": "ulbi tv",
       "lastname": "asf",
       "age": 465,
-      "currency": "EUR",
+      "currency": "RUB",
       "country": "Russia",
       "city": "Moscow",
       "username": "ulbi tv",
