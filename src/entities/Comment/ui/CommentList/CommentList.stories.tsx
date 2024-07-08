@@ -3,10 +3,11 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 // import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 // import { Theme } from 'app/providers/ThemeProvider';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { CommentList } from './CommentList';
 
 export default {
-    title: 'shared/CommentList',
+    title: 'entities/Comment/CommentList',
     component: CommentList,
     argTypes: {
         // backgroundColor: { control: 'color' },
@@ -16,4 +17,51 @@ export default {
 const Template: ComponentStory<typeof CommentList> = (args) => <CommentList {...args} />;
 
 export const Normal = Template.bind({});
-Normal.args = {};
+Normal.args = {
+    comments: [
+        {
+            id: '1',
+            text: 'hello world',
+            user: {
+                id: '1',
+                username: 'admin',
+            },
+        },
+        {
+            id: '2',
+            text: 'yhdtyhu',
+            user: {
+                id: '2',
+                username: 'user',
+            },
+        },
+    ],
+};
+
+export const Loading = Template.bind({});
+Loading.args = {
+    comments: [
+        {
+            id: '1',
+            text: 'hello world',
+            user: {
+                id: '1',
+                username: 'admin',
+            },
+        },
+        {
+            id: '2',
+            text: 'yhdtyhu',
+            user: {
+                id: '2',
+                username: 'user',
+            },
+        },
+    ],
+    isLoading: true,
+};
+
+export const NoComments = Template.bind({});
+NoComments.args = {
+    comments: undefined,
+};
