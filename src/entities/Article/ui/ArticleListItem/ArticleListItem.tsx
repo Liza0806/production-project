@@ -53,10 +53,10 @@ export const ArticleListItem = (props: ArticleListItemProps) => {
                 <Card className={cls.card}>
                     <div className={cls.header}>
                         <Avatar src={article.user.avatar} size={30} />
-                        <Text text={article.user.username} />
+                        <Text text={article.user.username} className={cls.username} />
                         <Text text={article.createdAt} className={cls.date} />
                     </div>
-                    <Text text={article.title} />
+                    <Text text={article.title} className={cls.title} />
                     {types}
                     <img src={article.img} className={cls.img} alt={article.title} />
                     {textBlock && (

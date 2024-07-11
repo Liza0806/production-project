@@ -94,8 +94,8 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
                         id: String(index),
                     }))
                 }
-                isLoading={false}
-                view={ArticleView.SMALL}
+                isLoading
+                view={ArticleView.BIG}
             />
         </div>
     );
