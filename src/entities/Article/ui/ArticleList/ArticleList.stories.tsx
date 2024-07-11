@@ -104,7 +104,7 @@ ArticleListIsLoadingSmallView.args = {
 };
 
 export const ArticleListIsLoadingBigView = Template.bind({});
-ArticleListBigView.args = {
+ArticleListIsLoadingBigView.args = {
     articles: new Array(3)
         .fill(article),
     isLoading: true,
