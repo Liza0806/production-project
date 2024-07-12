@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { BugButton } from 'app/providers/ErrorBoundary';
 import { Counter } from 'entities/Counter';
 import { Input } from 'shared/ui/Input/Input';
+import { Page } from 'shared/ui/Page/Page';
 
 const MainPage = () => {
     const { t } = useTranslation('main');
@@ -11,14 +12,14 @@ const MainPage = () => {
         setValue(val);
     };
     return (
-        <div>
+        <Page>
             {t('Main Page')}
             <Input
                 placeholder={t('add text')}
                 value={value}
                 onChange={onChange}
             />
-        </div>
+        </Page>
     );
 };
 
