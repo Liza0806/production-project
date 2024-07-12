@@ -5,6 +5,7 @@ import TiledIcon from 'shared/assets/icons/tiled-24-24.svg';
 import { memo } from 'react';
 import Button, { ButtonTheme } from 'shared/ui/Button/Button';
 import { Icon } from 'shared/ui/Icon/Icon';
+import cls from './ArticleViewSelector.module.scss';
 
 interface ArticleViewSelectorProps {
     className?: string;
@@ -29,8 +30,17 @@ export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
     return (
         <div className={classNames('', {}, [className])}>
             {viewTypes.map((viewType) => (
-                <Button theme={ButtonTheme.CLEAR} onClick={onClick(viewType.view)}>
-                    <Icon Svg={viewType.icon} />
+                <Button
+                    theme={ButtonTheme.CLEAR}
+                    onClick={onClick(viewType.view)}
+                >
+                    <Icon
+                        Svg={viewType.icon}
+                        className={classNames(
+                            '',
+                            { [cls.notSelected]: viewType.view !== view },
+                        )}
+                    />
                 </Button>
             ))}
         </div>
