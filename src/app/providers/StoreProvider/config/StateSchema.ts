@@ -11,6 +11,7 @@ import { NavigateOptions } from 'react-router';
 import { To } from '@remix-run/router/dist/history';
 import { ArticleDetailsSchema } from 'entities/Article';
 import { ArticleDetailsCommentSchema } from 'Pages/ArticleDetailsPage';
+import { ArticlePageSchema } from 'Pages/ArticlesPage';
 import { LoginSchema } from
     '../../../../features/AuthByUserName/model/types/loginSchema';
 import {
@@ -27,6 +28,7 @@ export interface StateSchema {
     articleDetails?: ArticleDetailsSchema;
     articleDetailsComments?: ArticleDetailsCommentSchema;
     addCommentForm?: AddCommentFormSchema;
+    articlesPage?: ArticlePageSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;
