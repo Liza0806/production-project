@@ -12,6 +12,7 @@ import { To } from '@remix-run/router/dist/history';
 import { ArticleDetailsSchema } from 'entities/Article';
 import { ArticleDetailsCommentSchema } from 'Pages/ArticleDetailsPage';
 import { ArticlePageSchema } from 'Pages/ArticlesPage';
+import { ScrollSaverUISchema } from 'features/ScrollSaver';
 import { LoginSchema } from
     '../../../../features/AuthByUserName/model/types/loginSchema';
 import {
@@ -21,6 +22,7 @@ import {
 export interface StateSchema {
     counter: CounterSchema;
     user: UserSchema;
+    scroll: ScrollSaverUISchema;
 
     // Async
     loginForm?: LoginSchema;

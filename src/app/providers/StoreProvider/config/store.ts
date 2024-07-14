@@ -2,9 +2,10 @@ import { configureStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
 import { $api } from 'shared/api/api';
-import { NavigateOptions } from 'react-router';
-import { To } from '@remix-run/router/dist/history';
+// import { NavigateOptions } from 'react-router';
+// import { To } from '@remix-run/router/dist/history';
 import { CombinedState } from 'redux';
+import { scrollSchemaSliceReducer } from 'features/ScrollSaver';
 import { createReducerManager } from './reducerManager';
 import { StateSchema, ThunkExtraArg } from './StateSchema';
 
@@ -17,11 +18,12 @@ export function createReduxStore(
         ...asyncReducers,
         counter: counterReducer,
         user: userReducer,
+        scroll: scrollSchemaSliceReducer,
     };
 
     const reducerManager = createReducerManager(rootReducers);
 
-    const extpaArg: ThunkExtraArg = {
+    const extraArg: ThunkExtraArg = {
         api: $api,
         //   navigate,
     };
@@ -32,7 +34,7 @@ export function createReduxStore(
         preloadedState: initialState,
         middleware: (getDefaultMiddleware) => getDefaultMiddleware({
             thunk: {
-                extraArgument: extpaArg,
+                extraArgument: extraArg,
             },
         }),
     });
