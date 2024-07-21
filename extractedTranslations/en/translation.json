@@ -41,10 +41,16 @@
   "city": "",
   "commemts": "commemts",
   "comments": "comments",
+  "created at": "",
   "no commemts": "",
   "no comments": "",
+  "on": "",
+  "search": "search",
+  "sort on": "",
+  "title": "",
   "toggle": "toggle",
   "username": "",
+  "views": "",
   "wrong username or password": "",
   "your age": "",
   "your avatar": "",
@@ -64,5 +70,7 @@
         "": ""
       }
     }
-  }
+  },
+  "возрастанию": "",
+  "убыванию": ""
 }

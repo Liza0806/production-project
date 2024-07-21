@@ -41,10 +41,16 @@
   "city": "city",
   "commemts": "commemts",
   "comments": "comments",
+  "created at": "created at",
   "no commemts": "no commemts",
   "no comments": "no comments",
+  "on": "on",
+  "search": "search",
+  "sort on": "sort on",
+  "title": "title",
   "toggle": "toggle",
   "username": "username",
+  "views": "views",
   "wrong username or password": "wrong username or password",
   "your age": "your age",
   "your avatar": "your avatar",
@@ -57,5 +63,7 @@
   "Имя и фамилия обязательны": "Имя и фамилия обязательны",
   "Некорректный возраст": "Некорректный возраст",
   "Некорректный регион": "Некорректный регион",
-  "Серверная ошибка при сохранении": "Серверная ошибка при сохранении"
+  "Серверная ошибка при сохранении": "Серверная ошибка при сохранении",
+  "возрастанию": "возрастанию",
+  "убыванию": "убыванию"
 }
