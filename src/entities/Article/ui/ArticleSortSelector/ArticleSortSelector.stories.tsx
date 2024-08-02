@@ -1,12 +1,9 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-
-// import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-// import { Theme } from 'app/providers/ThemeProvider';
 import { ArticleSortSelector } from './ArticleSortSelector';
 
 export default {
-    title: 'shared/ArticleSortSelector',
+    title: 'entities/Article/ArticleSortSelector',
     component: ArticleSortSelector,
     argTypes: {
         // backgroundColor: { control: 'color' },
