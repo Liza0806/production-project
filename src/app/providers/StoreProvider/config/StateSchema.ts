@@ -10,7 +10,11 @@ import { AxiosInstance } from 'axios';
 import { NavigateOptions } from 'react-router';
 import { To } from '@remix-run/router/dist/history';
 import { ArticleDetailsSchema } from 'entities/Article';
-import { ArticleDetailsCommentSchema } from 'Pages/ArticleDetailsPage';
+import {
+    ArticleDetailsCommentSchema,
+    ArticleDetailsPageRecommendationsSchema,
+    ArticleDetailsPageSchema,
+} from 'Pages/ArticleDetailsPage';
 import { ArticlePageSchema } from 'Pages/ArticlesPage';
 import { ScrollSaverUISchema } from 'features/ScrollSaver';
 import { LoginSchema } from
@@ -28,9 +32,11 @@ export interface StateSchema {
     loginForm?: LoginSchema;
     profile?: ProfileSchema;
     articleDetails?: ArticleDetailsSchema;
-    articleDetailsComments?: ArticleDetailsCommentSchema;
+   // articleDetailsComments?: ArticleDetailsCommentSchema;
+   // articleDetailsRecommendations?: ArticleDetailsPageRecommendationsSchema;
     addCommentForm?: AddCommentFormSchema;
     articlesPage?: ArticlePageSchema;
+    articleDetailsPage?: ArticleDetailsPageSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

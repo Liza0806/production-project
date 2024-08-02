@@ -30,6 +30,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
     const { t } = useTranslation();
     const renderArticle = (article: Article) => (
         <ArticleListItem
+            target="_blank"
             article={article}
             view={view}
             className={cls.card}
