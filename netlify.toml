@@ -5,9 +5,3 @@
   status = 200
   force = true
 
-# Настройка редиректов для обработки SPA (Single Page Application)
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-  force = true
