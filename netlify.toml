@@ -4,4 +4,3 @@
   to = "https://production-project-server-sepia-sigma.vercel.app/:splat"
   status = 200
   force = true
-
