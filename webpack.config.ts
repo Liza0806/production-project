@@ -13,11 +13,11 @@ export default (env: BuildEnv) => {
         buildLocales: path.resolve(__dirname, 'build', 'locales'),
     };
 
-    const mode = 'production';
+    const mode = env.mode || 'development';
     const PORT = env.port || 3000;
-    const apiUrl = 'https://production-project-server-sepia-sigma.vercel.app';
+    const apiUrl = env.apiUrl || 'http://localhost:8000';
 
-    const isDev = false; // mode === 'development';
+    const isDev = mode === 'development';
 
     const config: webpack.Configuration = buildWebpackConfig({
         mode,
