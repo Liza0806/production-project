@@ -1,6 +1,6 @@
-# Настройка редиректов для обработки SPA (Single Page Application)
+# Настройка редиректов для прокси
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
+  from = "/api/*"
+  to = "https://production-project-server-sepia-sigma.vercel.app/:splat"
   status = 200
   force = true
