@@ -1,4 +1,4 @@
-# Настройка редиректов для обработки SPA (Single Page Application)
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
