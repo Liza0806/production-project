@@ -12,33 +12,36 @@ import { SideBarItemType } from '../types/sidebar';
 export const getSidebarItems = createSelector(
     getUserAuthData,
     (userData) => {
-        const sideBarItemsList: SideBarItemType[] = [
+        const sidebarItemsList: SideBarItemType[] = [
             {
                 path: RoutePath.main,
                 Icon: MainIcon,
-                text: 'Main',
+                text: 'Главная',
             },
             {
                 path: RoutePath.about,
                 Icon: AboutIcon,
-                text: 'About',
-            }];
+                text: 'О сайте',
+            },
+        ];
+
         if (userData) {
-            sideBarItemsList.push(
+            sidebarItemsList.push(
                 {
                     path: RoutePath.profile + userData.id,
                     Icon: ProfileIcon,
-                    text: 'Profile',
+                    text: 'Профиль',
                     authOnly: true,
                 },
                 {
                     path: RoutePath.articles,
                     Icon: ArticleIcon,
-                    text: 'Articles',
+                    text: 'Статьи',
                     authOnly: true,
                 },
             );
-            return sideBarItemsList;
         }
+
+        return sidebarItemsList;
     },
 );

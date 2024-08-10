@@ -1,7 +1,7 @@
+import { userActions } from 'entities/User';
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
-import { d } from '@pmmmwh/react-refresh-webpack-plugin/types/options';
 import { ValidateProfileError } from 'entities/Profile';
 import { updateProfileData } from './updateProfileData';
 
@@ -16,16 +16,14 @@ const data = {
     id: '1',
 };
 
-describe('fetchProfileData.test', () => {
+describe('updateProfileData.test', () => {
     test('success', async () => {
-        const thunk = new TestAsyncThunk(
-            updateProfileData,
-            {
-                profile: {
-                    form: data,
-                },
+        const thunk = new TestAsyncThunk(updateProfileData, {
+            profile: {
+                form: data,
             },
-        );
+        });
+
         thunk.api.put.mockReturnValue(Promise.resolve({ data }));
 
         const result = await thunk.callThunk();
@@ -36,12 +34,19 @@ describe('fetchProfileData.test', () => {
     });
 
     test('error', async () => {
-        const thunk = new TestAsyncThunk(updateProfileData);
+        const thunk = new TestAsyncThunk(updateProfileData, {
+            profile: {
+                form: data,
+            },
+        });
         thunk.api.put.mockReturnValue(Promise.resolve({ status: 403 }));
+
         const result = await thunk.callThunk();
 
         expect(result.meta.requestStatus).toBe('rejected');
-        expect(result.payload).toEqual([ValidateProfileError.NO_DATA]);
+        expect(result.payload).toEqual([
+            ValidateProfileError.SERVER_ERROR,
+        ]);
     });
 
     test('validate error', async () => {
@@ -58,5 +63,3 @@ describe('fetchProfileData.test', () => {
         ]);
     });
 });
-
-// npm run test:unit updateProfileData.test.ts

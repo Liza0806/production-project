@@ -22,7 +22,7 @@ export const Tabs = (props: TabsProps) => {
 
     const clickHandle = useCallback((tab: TabsItem) => () => {
         onTabClick(tab);
-    }, []);
+    }, [onTabClick]);
     return (
         <div className={classNames(cls.Tabs, {}, [className])}>
             {tabs.map((tab) => (
