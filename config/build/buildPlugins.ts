@@ -20,7 +20,7 @@ export function buildPlugins({
         }),
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
-            __API__: JSON.stringify('production-project-server-sepia-sigma.vercel.app'),
+            __API__: JSON.stringify(''),
             __PROJECT__: JSON.stringify(project),
         }),
         new CopyPlugin({
