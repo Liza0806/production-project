@@ -56,8 +56,7 @@ export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
 }
 
 export interface ThunkExtraArg {
-    // api: AxiosInstance;
-    api: 'production-project-server-sepia-sigma.vercel.app';
+    api: AxiosInstance;
   //  navigate?: (to: To, options?: NavigateOptions) => void,
 }
 
