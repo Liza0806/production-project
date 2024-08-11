@@ -11,11 +11,6 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
     return {
         mode,
         entry: paths.entry,
-        module: {
-            rules: buildLoaders(options),
-        },
-
-        resolve: buildResolvers(options),
         output: {
             filename: '[name].[contenthash].js',
             path: paths.build,
@@ -23,8 +18,11 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
             publicPath: '/',
         },
         plugins: buildPlugins(options),
-        devtool: isDev ? 'inline-source-map' : undefined, // делает карту, чтобы по стектрейсу можно было отследить,
-        // где ошибка из множества файлов
+        module: {
+            rules: buildLoaders(options),
+        },
+        resolve: buildResolvers(options),
+        devtool: isDev ? 'inline-source-map' : undefined,
         devServer: isDev ? buildDevServer(options) : undefined,
     };
 }

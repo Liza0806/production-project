@@ -2,7 +2,6 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { User, userActions } from 'entities/User';
 import { USER_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
 import { ThunkConfig, ThunkExtraArg } from 'app/providers/StoreProvider';
-import axios from 'axios';
 
 interface LoginByUsernameProps {
     username: string;
@@ -17,24 +16,16 @@ export const loginByUsername = createAsyncThunk<
     'login/loginByUsername',
     async (authData, thunkApi) => {
         const { extra, dispatch, rejectWithValue } = thunkApi;
-        const url = 'production-project-server-sepia-sigma.vercel.app';
-        try {
-            const response = axios({
-                method: 'post',
-                url: `${url}/login`,
-                data: authData,
-            });
-            // const response = await extra.api.post<User>('/login', authData);
 
-            if (!response) {
+        try {
+            const response = await extra.api.post<User>('/login', authData);
+
+            if (!response.data) {
                 throw new Error();
             }
 
-            // @ts-ignore
-            localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response?.data));
-            // @ts-ignore
+            localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data));
             dispatch(userActions.setAuthData(response.data));
-            // @ts-ignore
             return response.data;
         } catch (e) {
             console.log(e);
